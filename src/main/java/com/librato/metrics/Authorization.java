@@ -1,7 +1,8 @@
 package com.librato.metrics;
 
-import javax.xml.bind.DatatypeConverter;
+import net.iharder.Base64;
 import java.nio.charset.Charset;
+
 
 public class Authorization {
     private Authorization() {
@@ -26,6 +27,6 @@ public class Authorization {
     }
 
     private static String base64Encode(byte[] bytes) {
-        return DatatypeConverter.printBase64Binary(bytes);
+        return Base64.encodeBytes(bytes);
     }
 }
