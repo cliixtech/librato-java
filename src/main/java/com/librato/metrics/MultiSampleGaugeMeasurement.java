@@ -89,4 +89,10 @@ public class MultiSampleGaugeMeasurement implements Measurement {
         }
         return result;
     }
+
+    @Override
+    public Measurement adjustTime(long measureTimeDelta) {
+    return new MultiSampleGaugeMeasurement(this.source, this.period, this.name, this.count, this.sum, this.max,
+        this.min, this.sumSquares, this.metricAttributes, this.measureTime + measureTimeDelta);
+    }
 }

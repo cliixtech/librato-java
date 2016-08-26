@@ -68,4 +68,10 @@ public class CounterMeasurement implements Measurement {
         value.put("value", count);
         return value;
     }
+
+    @Override
+    public Measurement adjustTime(long measureTimeDelta) {
+    return new CounterMeasurement(this.source, this.period, this.name, this.count, this.metricAttributes,
+        this.measureTime + measureTimeDelta);
+    }
 }
